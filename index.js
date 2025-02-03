@@ -1,12 +1,11 @@
-import { exec } from "child_process";
-import http from "http";
+const http = require("http");
+const { exec } = require("child_process");
 
 const PORT = 3000;
 
 http
   .createServer((req, res) => {
-    // Use Ollama to chat with the model
-    exec(`ollama chat llama2`, (err, stdout) => {
+    exec("ollama chat llama2", (err, stdout) => {
       if (err) {
         res.writeHead(500);
         res.end("Error: " + err.message);
@@ -19,3 +18,4 @@ http
   .listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
   });
+
