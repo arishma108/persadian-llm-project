@@ -1,0 +1,5 @@
+name = "persadian-llm"
+compatibility_date = "2025-01-24"
+
+[vars]
+PORT = "3000"

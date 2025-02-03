@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>persadian LLM Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    textarea {
+      width: 80%;
+      height: 100px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+    }
+    #response {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chat with persadian-LLM</h1>
+  <textarea id="input" placeholder="Type your message..."></textarea><br>
+  <button onclick="sendMessage()">Send</button>
+  <div id="response"></div>
+
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById('input').value;
+      const response = await fetch('/', { method: 'POST', body: input });
+      const result = await response.text();
+      document.getElementById('response').innerText = result;
+    }
+  </script>
+</body>
+</html>
